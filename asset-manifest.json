@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/tabelline/static/css/main.8e67ecb6.css",
+    "main.js": "/tabelline/static/js/main.fdfb9e32.js",
+    "index.html": "/tabelline/index.html",
+    "main.8e67ecb6.css.map": "/tabelline/static/css/main.8e67ecb6.css.map",
+    "main.fdfb9e32.js.map": "/tabelline/static/js/main.fdfb9e32.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8e67ecb6.css",
+    "static/js/main.fdfb9e32.js"
+  ]
+}
