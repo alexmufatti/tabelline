@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/tabelline/static/css/main.8e67ecb6.css",
-    "main.js": "/tabelline/static/js/main.fdfb9e32.js",
+    "main.css": "/tabelline/static/css/main.a6845bcf.css",
+    "main.js": "/tabelline/static/js/main.4370d454.js",
+    "static/media/donkey.png": "/tabelline/static/media/donkey.1644b62c1ed4185a70bf.png",
     "index.html": "/tabelline/index.html",
-    "main.8e67ecb6.css.map": "/tabelline/static/css/main.8e67ecb6.css.map",
-    "main.fdfb9e32.js.map": "/tabelline/static/js/main.fdfb9e32.js.map"
+    "main.a6845bcf.css.map": "/tabelline/static/css/main.a6845bcf.css.map",
+    "main.4370d454.js.map": "/tabelline/static/js/main.4370d454.js.map"
   },
   "entrypoints": [
-    "static/css/main.8e67ecb6.css",
-    "static/js/main.fdfb9e32.js"
+    "static/css/main.a6845bcf.css",
+    "static/js/main.4370d454.js"
   ]
 }
