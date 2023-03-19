@@ -98,7 +98,7 @@ export default function Resolver({operation, newOperation}: ResolverProps) {
                 <Button disabled={celebration !== null} onClick={check}>Verifica</Button>
 
             </Flex>
-            <Flex direction={'column'}>
+            <Flex direction={'column'} sx={{ maxWidth: 500}}>
                 <Title>{getCelebrationString()}</Title>
                 {celebration !== null &&
                     <>
