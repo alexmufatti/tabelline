@@ -9,8 +9,8 @@ export type Celebration = 'OK' | 'NO' | null
 
 export interface ResolverProps {
     operation: Operation;
-
     newOperation: () => void;
+    onOk: () => void;
 }
 
 export interface Results {
@@ -19,7 +19,7 @@ export interface Results {
     kos: number
 }
 
-export default function Resolver({operation, newOperation}: ResolverProps) {
+export default function Resolver({operation, newOperation, onOk}: ResolverProps) {
 
     const [tentative, setTentative] = React.useState<number | null>(null);
     const [results, setResults] = React.useState<Results>({oks: 0, kos: 0});
@@ -34,6 +34,7 @@ export default function Resolver({operation, newOperation}: ResolverProps) {
         if (tentative === operation.result) {
             setResults({oks: results.oks + 1, kos: results.kos});
             setCelebration("OK");
+            onOk();
             fetchNewImage();
         } else {
             setResults({oks: results.oks, kos: results.kos + 1})
