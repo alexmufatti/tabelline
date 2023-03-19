@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Resolver from "./Resolver";
-import {Button} from "@mantine/core";
+import {Button, Flex} from "@mantine/core";
 
 export interface Operation {
     first: number,
@@ -26,21 +26,23 @@ function App() {
     }
 
     return (
-        <div className="App">
+        <Flex direction={'column'} className="App">
             <header className="App-header">
                 Vuoi imparare le tabelline?
             </header>
             {operation !== null ? (
-                <section className="App-section">
+                <Flex direction={'column'}  className="App-section">
                     <Resolver operation={operation} newOperation={() => newOperation(tabellina)}/>
-                </section>) : (
-                <section className="App-section">
+                </Flex>) : (
+                <Flex direction={'column'} className="App-section">
                     <p>Fino a quale tabellina vuoi giocare?</p>
+                    <Flex wrap={'wrap'} justify={'center'}>
                     {[2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => <Button m={5} onClick={() => start(n)}>{n}</Button>)}
-                </section>)}
+                </Flex>
+                </Flex>)}
 
             <Button onClick={() => setOperation(null)}>Nuova partita</Button>
-        </div>
+        </Flex>
     );
 }
 
