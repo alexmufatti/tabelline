@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
 import Resolver from "./Resolver";
-import {Button, Flex} from "@mantine/core";
+import {Box, Button, Flex} from "@mantine/core";
+import {modals} from "@mantine/modals";
 
 export interface Operation {
     first: number,
@@ -9,10 +10,18 @@ export interface Operation {
     result: number
 }
 
+export interface Results {
+    oks: number
+
+    kos: number
+}
+
 function App() {
 
     const [operation, setOperation] = React.useState<Operation | null>(null)
     const [operations, setOperations] = React.useState<Operation[]>([])
+
+    const [results, setResults] = React.useState<Results>({oks: 0, kos: 0});
 
     function newOperation(ops: Operation[]) {
         if (ops.length === 0) {
@@ -49,7 +58,18 @@ function App() {
                     <Resolver operation={operation}
                               newOperation={() => newOperation(operations)}
                               onOk={() => {
+                                  setResults({oks: results.oks + 1, kos: results.kos});
                                   setOperations(operations.filter((o) => o !== operation));
+                              }}
+                              onKo={() => {
+                                  setResults({oks: results.oks, kos: results.kos + 1})
+                              }}
+                              openResults={() => {
+                                      modals.open({
+                                          title: 'Risultati',
+                                          centered: true,
+                                          children: <Box>Hai dato {results.oks} risposte corrette e {results.kos} sbagliate!</Box>,
+                                      });
                               }}
                     />
                 </Flex>) : (
