@@ -84,6 +84,7 @@ export default function Resolver({operation, newOperation, onOk, onKo, openResul
                     value={tentative || ""}
                     onChange={resultChanged}
                     hideControls
+                    sx={{ fontSize: 16 }}
                 />
                 <Button disabled={celebration !== null} onClick={check}>Verifica</Button>
 
