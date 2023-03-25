@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Resolver from "./Resolver";
-import {Box, Button, Flex} from "@mantine/core";
+import {Button, Flex, Text} from "@mantine/core";
 import {modals} from "@mantine/modals";
 
 export interface Operation {
@@ -25,6 +25,7 @@ function App() {
 
     function newOperation(ops: Operation[]) {
         if (ops.length === 0) {
+            showResult();
             setOperation(null);
         } else {
             const idx = Math.floor((Math.random() * (ops.length - 1)));
@@ -48,6 +49,14 @@ function App() {
         newOperation(operations);
     }
 
+    function showResult() {
+        modals.open({
+            title: 'Risultati',
+            centered: true,
+            children: <Text>Hai dato {results.oks} risposte corrette <br/> e {results.kos} sbagliate!</Text>,
+        });
+    }
+
     return (
         <Flex direction={'column'} className="App">
             <header className="App-header">
@@ -65,18 +74,14 @@ function App() {
                                   setResults({oks: results.oks, kos: results.kos + 1})
                               }}
                               openResults={() => {
-                                      modals.open({
-                                          title: 'Risultati',
-                                          centered: true,
-                                          children: <Box>Hai dato {results.oks} risposte corrette e {results.kos} sbagliate!</Box>,
-                                      });
+                                      showResult();
                               }}
                     />
                 </Flex>) : (
                 <Flex direction={'column'} className="App-section">
                     <p>Fino a quale tabellina vuoi giocare?</p>
                     <Flex wrap={'wrap'} justify={'center'}>
-                        {[2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => <Button m={5} onClick={() => start(n)}>{n}</Button>)}
+                        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => <Button m={5} onClick={() => start(n)}>{n}</Button>)}
                     </Flex>
                 </Flex>)}
 

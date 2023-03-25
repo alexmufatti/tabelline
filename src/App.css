@@ -3,7 +3,11 @@ body {
 }
 
 input {
-  font-size: inherit;
+  font-size: 16px;
+}
+
+.mantine-Input-input {
+  font-size: 16px;
 }
 
 .App {
